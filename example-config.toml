@@ -1,0 +1,15 @@
+# xxx.toml
+
+[api]
+user  = "<jira_email>"
+pass  = "<password>"
+#host = ""
+#path = ""
+
+[app]
+limit = 10
+skip  = 0
+verbose = false
+
+[dbg]
+dump-response = false
