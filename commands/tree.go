@@ -41,7 +41,7 @@ var treeCommand = &cobra.Command{
 			fmt.Fprintf(os.Stderr, "Error fetching issue %q: %v\n", id, err)
 			os.Exit(0)
 		}
-		printIssueRow(*issue, "")
+		printIssueRow(issue, "")
 
 		// Default JQL for Epic
 		jql := fmt.Sprintf(`\"Epic Link\"=%v`, id)
@@ -64,7 +64,7 @@ var treeCommand = &cobra.Command{
 
 		for _, issue := range issueList.Issues {
 			numTasks++
-			printIssueRow(issue, "  ")
+			printIssueRow(&issue, "  ")
 
 			if issue.Fields.TimeTracking != nil {
 				remainingEstimateSeconds += issue.Fields.TimeTracking.RemainingEstimateSeconds
@@ -80,7 +80,7 @@ var treeCommand = &cobra.Command{
 			}
 			for _, subissue := range subIssueList.Issues {
 				numSubTasks++
-				printIssueRow(subissue, "    ")
+				printIssueRow(&subissue, "    ")
 				if subissue.Fields.TimeTracking != nil {
 					remainingEstimateSeconds += subissue.Fields.TimeTracking.RemainingEstimateSeconds
 				} else {

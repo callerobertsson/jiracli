@@ -40,7 +40,7 @@ var searchCommand = &cobra.Command{
 		}
 
 		for _, issue := range issueList.Issues {
-			printIssueRow(issue, "")
+			printIssueRow(&issue, "")
 		}
 
 		printIssueListSummary(issueList)

@@ -10,6 +10,7 @@ import (
 )
 
 func init() {
+
 	JiraCommand.AddCommand(epicsCommand)
 }
 
@@ -42,7 +43,7 @@ var epicsCommand = &cobra.Command{
 		}
 
 		for _, issue := range issueList.Issues {
-			printIssueRow(issue, "")
+			printIssueRow(&issue, "")
 		}
 
 		printIssueListSummary(issueList)

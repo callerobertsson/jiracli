@@ -41,7 +41,7 @@ func printIssue(issue *jira.Issue, dump bool) {
 
 }
 
-func printIssueRow(issue jira.Issue, indent string) {
+func printIssueRow(issue *jira.Issue, indent string) {
 
 	fields := issue.Fields
 
@@ -72,6 +72,11 @@ func printIssueRow(issue jira.Issue, indent string) {
 		assigneeName,
 		remainingTime,
 	)
+
+	if viper.GetBool("app.verbose") {
+		fmt.Printf("       Summary: %v\n", issue.Fields.Summary)
+	}
+
 }
 
 func limitString(s string, max int) string {
